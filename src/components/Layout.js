@@ -1,9 +1,7 @@
 import Head from 'next/head'
-import { useThemeContext } from '../context/themeContext'
 import { motion } from 'framer-motion'
 
 export default function Layout({ children }) {
-  const { theme } = useThemeContext()
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -13,11 +11,7 @@ export default function Layout({ children }) {
       <Head>
         <title>Next.js Tailwind CSS Starter</title>
       </Head>
-      <div
-        className={`${
-          theme === 'light' ? 'theme-light' : 'theme-dark'
-        } text-themeText antialiased min-h-screen bg-themeBackground transition-colors duration-300 ease-in-out font-sans overflow-hidden`}
-      >
+      <div className='min-h-screen overflow-hidden font-sans antialiased transition-colors duration-300 ease-in-out text-themeText bg-themeBg'>
         <main>{children}</main>
       </div>
     </motion.div>

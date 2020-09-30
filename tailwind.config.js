@@ -11,7 +11,7 @@ module.exports = {
       },
       colors: {
         themeText: 'var(--text)',
-        themeBackground: 'var(--background)',
+        themeBg: 'var(--background)',
         themeHighlight: 'var(--highlight)',
       },
     },
