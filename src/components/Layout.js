@@ -16,7 +16,7 @@ export default function Layout({ children }) {
       <div
         className={`${
           theme === 'light' ? 'theme-light' : 'theme-dark'
-        } text-themeText min-h-screen bg-themeBackground transition-colors duration-300 ease-in-out font-sans overflow-hidden`}
+        } text-themeText antialiased min-h-screen bg-themeBackground transition-colors duration-300 ease-in-out font-sans overflow-hidden`}
       >
         <main>{children}</main>
       </div>
