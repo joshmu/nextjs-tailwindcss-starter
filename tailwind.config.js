@@ -12,7 +12,7 @@ module.exports = {
       colors: {
         themeText: 'var(--text)',
         themeBg: 'var(--background)',
-        themeHighlight: 'var(--highlight)',
+        themeHighlight: 'rgba(var(--highlight), var(--bg-opacity))',
       },
     },
   },

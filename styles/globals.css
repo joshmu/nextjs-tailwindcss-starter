@@ -5,7 +5,8 @@
 :root {
   --light: #ffffff;
   --dark: #202020;
-  --special: rgba(255, 138, 76, 1);
+  --special_rgb: rgba(255, 138, 76, 1);
+  --special: 255, 138, 76;
 }
 
 .theme-light {
