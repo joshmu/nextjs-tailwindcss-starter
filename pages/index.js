@@ -1,6 +1,6 @@
-import Layout from '../src/components/Layout'
-import Reveal from '../src/components/Reveal'
-import { useThemeContext } from '../src/context/themeContext'
+import Layout from '@/components/Layout'
+import Reveal from '@/components/Reveal'
+import { useThemeContext } from '@/context/themeContext'
 
 export default function Home() {
   const { toggleTheme } = useThemeContext()

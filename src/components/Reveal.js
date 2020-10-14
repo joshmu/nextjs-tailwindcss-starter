@@ -1,5 +1,5 @@
+import { AnimatePresence, motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
-import { motion, useAnimation, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 export default function Reveal({
