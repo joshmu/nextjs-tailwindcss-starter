@@ -12,7 +12,8 @@ module.exports = {
       colors: {
         themeText: 'var(--text)',
         themeBg: 'var(--background)',
-        themeHighlight: 'rgba(var(--highlight), var(--bg-opacity))',
+        themeAccent: 'var(--accent)',
+        special: 'rgba(var(--highlight), var(--bg-opacity))',
       },
     },
   },

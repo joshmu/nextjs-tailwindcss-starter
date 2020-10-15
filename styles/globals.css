@@ -3,22 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --light: #ffffff;
-  --dark: #202020;
-  --special_rgb: rgba(255, 138, 76, 1);
   --special: 255, 138, 76;
 }
 
 .theme-light {
-  --text: var(--dark);
-  --background: var(--light);
-  --highlight: var(--special);
+  --text: #202020;
+  --background: #ffffff;
+  --accent: blue;
 }
 
 .theme-dark {
-  --text: var(--light);
-  --background: var(--dark);
-  --highlight: var(--special);
+  --text: #ffffff;
+  --background: #202020;
+  --accent: rgba(255, 138, 76, 1);
+}
+
+.theme-alt {
+  --text: yellow;
+  --background: darkblue;
+  --accent: papayawhip;
 }
 
 body {
