@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const themeContext = createContext({
   theme: '',
   toggleTheme: () => {},
+  THEME_TYPES: {},
 })
 
 const THEME_TYPES = {
@@ -13,12 +14,15 @@ const THEME_TYPES = {
 
 export function ThemeProvider(props) {
   // initial default is light theme
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState(Object.keys(THEME_TYPES)[0])
 
   // initial theme
   useEffect(() => {
     // get locally stored theme
     let savedTheme = window.localStorage.getItem('theme')
+
+    // validation check
+    if (!Object.keys(THEME_TYPES).includes(savedTheme)) savedTheme = null
 
     // if we don't have local stored then lets set it
     if (!savedTheme) {
