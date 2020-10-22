@@ -3,36 +3,32 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const themeContext = createContext({
   theme: '',
   toggleTheme: () => {},
-  THEME_TYPES: {},
 })
 
+const LOCALSTORAGE_KEY = 'vn:theme'
 const THEME_TYPES = {
   dark: 'theme-dark',
   light: 'theme-light',
-  alt: 'theme-alt',
+  superhero: 'theme-superhero',
+  hot: 'theme-hot',
 }
 
 export function ThemeProvider(props) {
-  // initial default is light theme
   const [theme, setTheme] = useState(Object.keys(THEME_TYPES)[0])
 
   // initial theme
   useEffect(() => {
     // get locally stored theme
-    let savedTheme = window.localStorage.getItem('theme')
+    let savedTheme = window.localStorage.getItem(LOCALSTORAGE_KEY)
 
     // validation check
     if (!Object.keys(THEME_TYPES).includes(savedTheme)) savedTheme = null
 
-    // if we don't have local stored then lets set it
-    if (!savedTheme) {
-      window.localStorage.setItem('theme', theme)
-    }
-
-    // if we have a local stored theme then let's set it
-    if (savedTheme) {
-      setTheme(savedTheme)
-    }
+    // if we have a saved theme then set it
+    // otherwise update localStorage with default initial theme
+    savedTheme
+      ? setTheme(savedTheme)
+      : window.localStorage.setItem(LOCALSTORAGE_KEY, theme)
   }, [])
 
   // when theme changes then assign to body tag
@@ -56,7 +52,7 @@ export function ThemeProvider(props) {
     if (!themeIdList.includes(newThemeId)) newThemeId = themeIdList[0]
 
     setTheme(newThemeId)
-    window.localStorage.setItem('theme', newThemeId)
+    window.localStorage.setItem(LOCALSTORAGE_KEY, newThemeId)
   }
 
   const value = {
