@@ -9,8 +9,6 @@ const LOCALSTORAGE_KEY = 'vn:theme'
 const THEME_TYPES = {
   dark: 'theme-dark',
   light: 'theme-light',
-  superhero: 'theme-superhero',
-  hot: 'theme-hot',
 }
 
 export function ThemeProvider(props) {

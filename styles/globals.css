@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --special: 255, 138, 76;
-}
-
 .theme-light {
   --text: #202020;
   --background: #ffffff;
