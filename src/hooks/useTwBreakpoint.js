@@ -5,29 +5,24 @@ import twConfigFile from '@/root/tailwind.config'
 
 const twConfig = resolveConfig(twConfigFile)
 
+// grab values
+const screens = twConfig.theme.screens
+const BREAKPOINTS = Object.entries(screens)
+  // format {id: size}
+  .reduce((breakpoints, [key, val]) => {
+    breakpoints[key] = +val.replace('px', '')
+    return breakpoints
+  }, {})
+
 const useTwBreakpoint = () => {
-  const [currentBreakpoint, setCurrentBreakpoint] = useState({
-    id: 'sm',
-    size: 640,
-  })
-  const [breakpoints, setBreakpoints] = useState({})
+  const [currentBreakpoint, setCurrentBreakpoint] = useState(null)
 
   useEffect(() => {
     const checkScreen = () => {
       const innerWidth = globalThis.window.innerWidth
-      const screens = twConfig.theme.screens
-
-      // grab values
-      const formattedBreakpoints = {}
-      Object.entries(screens)
-        // format {id, size}
-        .forEach(([key, val]) => {
-          formattedBreakpoints[key] = +val.replace('px', '')
-        })
-      setBreakpoints(formattedBreakpoints)
 
       // largest first so 'find' gets max breakpoint
-      let twBreakpoint = Object.entries(formattedBreakpoints)
+      let twBreakpoint = Object.entries(BREAKPOINTS)
         .map(([key, val]) => ({ id: key, size: val }))
         // largest to smallest so find can grab the appropriate breakpoint
         .sort((a, b) => b.size - a.size)
@@ -46,9 +41,9 @@ const useTwBreakpoint = () => {
     globalThis.window.addEventListener('resize', checkScreen)
     return () => globalThis.window.removeEventListener('resize', checkScreen)
   }, [])
-  return { currentBreakpoint, BREAKPOINTS: breakpoints }
+  return { currentBreakpoint, BREAKPOINTS }
 }
 
 export default useTwBreakpoint
 
-// @example :  currentBreakpoint.size < BREAKPOINTS['md']
+// @example : currentBreakpoint && currentBreakpoint.size < BREAKPOINTS['md'] ? () : ()
