@@ -1,6 +1,6 @@
-import Layout from '@/components/Layout'
 import RevealInView from '@/components/shared/ux/RevealInView'
 import { useThemeContext } from '@/context/themeContext'
+import Layout from '@/layout/Layout'
 
 export default function Home() {
   const { toggleTheme } = useThemeContext()

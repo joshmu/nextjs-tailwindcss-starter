@@ -1,5 +1,7 @@
-import Head from 'next/head'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
+
+import MetaTags from './MetaTags/MetaTags'
 
 export default function Layout({ children }) {
   return (
@@ -9,9 +11,9 @@ export default function Layout({ children }) {
       exit={{ opacity: 0 }}
     >
       <Head>
-        <title>Next.js Tailwind CSS Starter</title>
+        <MetaTags />
       </Head>
-      <div className='min-h-screen overflow-hidden font-sans antialiased transition-colors duration-300 ease-in-out text-themeText bg-themeBg'>
+      <div className='min-h-screen overflow-hidden font-sans antialiased transition-colors duration-200 ease-in-out'>
         <main>{children}</main>
       </div>
     </motion.div>
