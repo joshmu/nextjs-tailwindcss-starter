@@ -16,7 +16,7 @@ export default function Layout({ children }) {
       exit={{ opacity: 0 }}
     >
       <Head>
-        <MetaTags title={meta.title} description={meta.description} />
+        {/* <MetaTags title={meta.title} description={meta.description} /> */}
       </Head>
       <div className='min-h-screen overflow-hidden font-sans antialiased transition-colors duration-200 ease-in-out'>
         <main>{children}</main>
