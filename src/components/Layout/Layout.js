@@ -4,6 +4,7 @@ import Head from 'next/head'
 const meta = {
   title: 'Nextjs TailwindCss Starter Template',
   description: 'This is the meta description for the website',
+  keywords: 'josh mu, web dev, nextjs, tailwindcss',
   origin: 'https://www.example.com',
   imgUrl: 'https://www.example.com/assets/avatar.jpg',
 }
@@ -18,9 +19,11 @@ export default function Layout({ children }) {
       <Head>
         <title>{meta.title}</title>
 
+        {/* // * meta needs to be direct child of <Head> otherwise nextjs breaks... */}
         {/* HTML Meta Tags */}
         {/* Meta Tags Generated via http://heymeta.com</meta> */}
         <meta name='description' content={meta.description} />
+        <meta name='keywords' content={meta.keywords} />
 
         {/* Google / Search Engine Tags */}
         <meta itemProp='name' content={meta.title} />
