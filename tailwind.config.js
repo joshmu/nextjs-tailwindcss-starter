@@ -1,9 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: {
-    content: ['./pages/**/*.js', './src/components/**/*.js'],
-  },
+  purge: [
+    './pages/**/*.{ts,tsx, js,jsx}',
+    './src/components/**/*.{ts,tsx,js,jsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -29,7 +30,12 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require('tailwindcss-debug-screens')],
+  plugins:
+    process.env.NODE_ENV === 'production'
+      ? // production
+        []
+      : // development
+        [require('tailwindcss-debug-screens')],
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
