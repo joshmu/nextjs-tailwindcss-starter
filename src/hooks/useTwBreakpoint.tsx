@@ -6,15 +6,15 @@ import twConfigFile from '@/root/tailwind.config'
 const twConfig = resolveConfig(twConfigFile)
 
 // grab values
-const screens = twConfig.theme.screens
-const BREAKPOINTS = Object.entries(screens)
+const screens: { [key: string]: string } = twConfig.theme.screens
+const BREAKPOINTS: { [key: string]: number } = Object.entries(screens)
   // format {id: size}
   .reduce((breakpoints, [key, val]) => {
     breakpoints[key] = +val.replace('px', '')
     return breakpoints
   }, {})
 
-const useTwBreakpoint = () => {
+export const useTwBreakpoint = () => {
   const [currentBreakpoint, setCurrentBreakpoint] = useState(null)
 
   useEffect(() => {
@@ -43,7 +43,5 @@ const useTwBreakpoint = () => {
   }, [])
   return { currentBreakpoint, BREAKPOINTS }
 }
-
-export default useTwBreakpoint
 
 // @example : currentBreakpoint && currentBreakpoint.size < BREAKPOINTS['md'] ? () : ()
