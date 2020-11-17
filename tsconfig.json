@@ -2,16 +2,16 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/root/*": ["./*"],
       "@/layout/*": ["src/components/Layout/*"],
       "@/components/*": ["src/components/*"],
       "@/shared/*": ["src/components/shared/*"],
       "@/context/*": ["src/context/*"],
       "@/hooks/*": ["src/hooks/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/api/*": ["src/pages/api/*"],
-      "@/utils/*": ["./utils/*"],
-      "@/styles/*": ["./styles/*"]
+      "@/pages/*": ["pages/*"],
+      "@/api/*": ["pages/api/*"],
+      "@/services/*": ["src/services/*"],
+      "@/utils/*": ["utils/*"],
+      "@/styles/*": ["styles/*"]
     },
     "checkJs": true,
     "target": "es5",

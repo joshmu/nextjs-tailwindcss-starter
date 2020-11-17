@@ -27,7 +27,6 @@ export const Layout = ({ children }: LayoutProps) => {
     const origin = window.location.origin
     metaRef.current.origin = origin
     metaRef.current.imgUrl = origin + metaRef.current.imgUrl
-    console.log(metaRef.current)
   }, [])
 
   return (
