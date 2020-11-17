@@ -9,7 +9,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "postinstall": "husky install",
+    "plop": "plop"
   },
   "dependencies": {
     "framer-motion": "^2.9.4",
@@ -19,9 +24,14 @@
     "react-intersection-observer": "^8.30.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.1.2",
+    "@testing-library/user-event": "^12.2.2",
     "@types/node": "^14.14.7",
     "@types/react": "^16.9.56",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "husky": "^4.3.0",
+    "plop": "^2.7.4",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.29.0",
     "tailwindcss": "^1.9.6",
