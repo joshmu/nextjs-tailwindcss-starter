@@ -1,4 +1,4 @@
-// src/tests/index.test.tsx
+// src/__test__/index.test.tsx
 
 import { axe, toHaveNoViolations } from 'jest-axe'
 
@@ -13,5 +13,10 @@ describe('Index page', () => {
     const { container } = render(<IndexPage />)
     const results = await axe(container)
     expect(results).toHaveNoViolations()
+  })
+
+  xtest('matches snapshot', () => {
+    const { asFragment } = render(<IndexPage />)
+    expect(asFragment()).toMatchSnapshot()
   })
 })

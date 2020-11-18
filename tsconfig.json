@@ -10,8 +10,8 @@
       "@/pages/*": ["pages/*"],
       "@/api/*": ["pages/api/*"],
       "@/services/*": ["src/services/*"],
-      "@/utils/*": ["utils/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["src/styles/*"],
+      "@/utils/*": ["utils/*"]
     },
     "checkJs": true,
     "target": "es5",
