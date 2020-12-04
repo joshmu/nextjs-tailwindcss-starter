@@ -1,39 +1,45 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
+
+const plugins = [
+  plugin(function ({ addUtilities }) {
+    const extendLineThrough = {
+      '.line-through': {
+        textDecoration: 'line-through',
+        textDecorationColor: 'var(--accent)',
+      },
+    }
+    addUtilities(extendLineThrough)
+  }),
+]
+const devOnlyPlugins = [require('tailwindcss-debug-screens')]
 
 module.exports = {
   purge: [
-    "./pages/**/*.{ts,tsx, js,jsx}",
-    "./src/components/**/*.{ts,tsx,js,jsx}",
+    './pages/**/*.{ts,tsx, js,jsx}',
+    './src/components/**/*.{ts,tsx,js,jsx}',
   ],
+  // custom theme toggle used instead
+  darkMode: false, // 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Roboto", ...defaultTheme.fontFamily.sans],
+        sans: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        themeText: "var(--text)",
-        themeBg: "var(--background)",
-        themeAccent: "var(--accent)",
+        themeText: 'var(--text)',
+        themeBg: 'var(--background)',
+        themeAccent: 'var(--accent)',
       },
-      maxHeight: {
-        xs: "20rem",
-        sm: "24rem",
-        md: "28rem",
-        lg: "32rem",
-        xl: "36rem",
-        "2xl": "42rem",
-        "3xl": "48rem",
-        "4xl": "56rem",
-        "5xl": "64rem",
-        "6xl": "72rem",
+      opacity: {
+        10: '0.10',
+        90: '0.90',
       },
     },
   },
   variants: {},
   plugins:
-    process.env.NODE_ENV === "production"
-      ? // production
-        []
-      : // development
-        [require("tailwindcss-debug-screens")],
-};
+    process.env.NODE_ENV === 'production'
+      ? plugins
+      : [...plugins, ...devOnlyPlugins],
+}
