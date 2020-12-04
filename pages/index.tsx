@@ -1,4 +1,4 @@
-import { RevealInView } from '@/components/shared/ux/RevealInView'
+import { Reveal } from '@/components/shared/ux/RevealInView'
 import { useThemeContext } from '@/context/themeContext'
 import { Layout } from '@/layout/Layout'
 
@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <RevealInView>
+      <Reveal>
         <h1
           onClick={handleClick}
           className='p-8 text-6xl font-bold cursor-pointer'
@@ -19,7 +19,7 @@ export default function Home() {
           Next.js Tailwind CSS Starte
           <span className='uppercase animate-pulse text-themeAccent'>r</span>
         </h1>
-      </RevealInView>
+      </Reveal>
     </Layout>
   )
 }
