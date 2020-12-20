@@ -1,10 +1,8 @@
-# This is a [Next.js](https://nextjs.org/) & [Tailwind CSS](https://tailwindcss.com/) starter project.
+# This is a [Next.js](https://nextjs.org/) & [Tailwind CSS](https://tailwindcss.com/) starter template.
 
 - [Framer Motion](https://www.framer.com/motion/) is inlcluded.
-- [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) is inlcluded.
-- Light and Dark Theme Toggle
-
-Some additional experimental features are enabled in `tailwind.config.js`: _uniformColorPalette, extendedSpacingScale, extendedFontSizeScale_
+- [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer) is included.
+- Multi Theme Toggle
 
 ## Getting Started
 
