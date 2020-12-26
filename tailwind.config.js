@@ -1,17 +1,17 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
-const plugins = [
-  plugin(function ({ addUtilities }) {
-    const extendLineThrough = {
-      '.line-through': {
-        textDecoration: 'line-through',
-        textDecorationColor: 'var(--accent)',
-      },
-    }
-    addUtilities(extendLineThrough)
-  }),
-]
+const lineThroughPlugin = plugin(function ({ addUtilities }) {
+  const extendLineThrough = {
+    '.line-through': {
+      textDecoration: 'line-through',
+      textDecorationColor: 'var(--accent)',
+    },
+  }
+  addUtilities(extendLineThrough)
+})
+
+const plugins = [lineThroughPlugin]
 const devOnlyPlugins = [require('tailwindcss-debug-screens')]
 
 module.exports = {
@@ -40,6 +40,6 @@ module.exports = {
   variants: {},
   plugins:
     process.env.NODE_ENV === 'production'
-      ? plugins
+      ? plugin
       : [...plugins, ...devOnlyPlugins],
 }
